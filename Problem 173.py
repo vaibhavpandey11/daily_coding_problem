@@ -23,6 +23,8 @@ You can assume keys do not contain dots in them, i.e. no clobbering will occur.
 
 #______________________________________________
 
+# It is assumed that the input is in the format -
+# {"key": 3, "foo": {"a": 5, "bar": {"baz": 8}}}
 # The function given below enters the inner dictionaries and flattens them until no inner dictionary is found
 def nested_to_flat(key, value, pre_key):  # 'pre_key' is the outer key which is concatenated with inner keys    
     if not type(value) == dict:  # item simply added in 'result_dic' dictionary       
