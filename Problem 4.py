@@ -11,12 +11,9 @@ You can modify the input array in-place.
 #_________________________________________________________
 
 def missing_int(l):
-    l.sort()
+    l = sorted([x for x in l if x > 0])  # removing all non-positive integers (i.e. negative integers including zero), as positve integer is to be found.
     for i in range(0, len(l)-1):
-        if l[i] == -1 and l[i+1] != 1: return 1
-        elif l[i] == -1 and l[i+1] == 1: continue  # avoids second elif statement
-        elif l[i] != l[i+1] and l[i] != l[i+1]-1: return l[i] + 1
+        if l[i] != l[i+1] and l[i] != l[i+1]-1: return l[i] + 1
     else: return l[-1] + 1
 
 print(missing_int(eval(input())))
-    
